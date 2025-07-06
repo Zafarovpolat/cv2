@@ -16,8 +16,8 @@ class Particle {
     this.x = Math.random() * canvasWidth;
     this.y = Math.random() * canvasHeight;
     this.size = Math.random() * 2 + 1;
-    this.speedX = Math.random() * 1 - 0.5;
-    this.speedY = Math.random() * 1 - 0.5;
+    this.speedX = Math.random() * 0.4 - 0.2;
+    this.speedY = Math.random() * 0.4 - 0.2;
   }
 
   update() {
@@ -29,6 +29,10 @@ class Particle {
     }
     this.x += this.speedX;
     this.y += this.speedY;
+
+    // Add some friction
+    this.speedX *= 0.98;
+    this.speedY *= 0.98;
   }
 
   draw(ctx: CanvasRenderingContext2D) {
@@ -43,6 +47,7 @@ export default function ParticleBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesArray = useRef<Particle[]>([]);
   const animationFrameId = useRef<number>();
+  const mouse = useRef<{ x: number | null, y: number | null }>({ x: null, y: null });
 
   const initParticles = useCallback((width: number, height: number) => {
     particlesArray.current = [];
@@ -61,6 +66,8 @@ export default function ParticleBackground() {
     if (!ctx) return;
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Animate particles and draw lines between them
     for (let i = 0; i < particlesArray.current.length; i++) {
       const p1 = particlesArray.current[i];
       p1.update();
@@ -83,6 +90,37 @@ export default function ParticleBackground() {
         }
       }
     }
+
+    // Interact with mouse
+    if (mouse.current.x && mouse.current.y) {
+      for (let i = 0; i < particlesArray.current.length; i++) {
+        const p = particlesArray.current[i];
+        const dx = mouse.current.x - p.x;
+        const dy = mouse.current.y - p.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        // Draw line from mouse to particle
+        if (distance < 250) {
+          ctx.beginPath();
+          ctx.strokeStyle = `hsla(195, 100%, 50%, ${1 - distance / 250})`;
+          ctx.lineWidth = 0.5;
+          ctx.moveTo(mouse.current.x, mouse.current.y);
+          ctx.lineTo(p.x, p.y);
+          ctx.stroke();
+        }
+
+        // Apply gravitational force towards mouse
+        if (distance < 200) {
+          const forceDirectionX = dx / distance;
+          const forceDirectionY = dy / distance;
+          const force = (200 - distance) / 200 * 0.25;
+          p.speedX += forceDirectionX * force;
+          p.speedY += forceDirectionY * force;
+        }
+      }
+    }
+
+
     animationFrameId.current = requestAnimationFrame(animate);
   }, []);
   
@@ -96,6 +134,18 @@ export default function ParticleBackground() {
   },[initParticles]);
 
   useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      mouse.current.x = event.clientX;
+      mouse.current.y = event.clientY;
+    };
+    const handleMouseLeave = () => {
+      mouse.current.x = null;
+      mouse.current.y = null;
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    document.body.addEventListener('mouseleave', handleMouseLeave);
+    
     setupCanvas();
     animate();
 
@@ -106,6 +156,9 @@ export default function ParticleBackground() {
     return () => {
       resizeObserver.disconnect();
       window.removeEventListener("resize", setupCanvas);
+      window.removeEventListener("mousemove", handleMouseMove);
+      document.body.removeEventListener("mouseleave", handleMouseLeave);
+
       if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);
       }

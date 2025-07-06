@@ -42,6 +42,40 @@
   }
 }
 
+@layer components {
+  .magic-box {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+  }
+  .magic-box > * {
+    position: relative;
+    overflow: hidden;
+  }
+  .magic-box > *::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(350px circle at var(--mouse-x, 100%) var(--mouse-y, 100%), hsl(var(--primary) / 0.15), transparent 80%);
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    will-change: opacity;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .magic-box:hover > *::before {
+    opacity: 1;
+  }
+  .magic-box:hover {
+    transform: scale(1.03) perspective(1000px) rotateX(calc((var(--mouse-y-rel, 0.5) - 0.5) * -15deg)) rotateY(calc((var(--mouse-x-rel, 0.5) - 0.5) * 15deg));
+  }
+  .magic-box > * > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
 @keyframes glow {
   0%, 100% {
     box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.6);

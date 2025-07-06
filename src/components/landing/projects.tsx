@@ -8,6 +8,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink } from "lucide-react";
+import MagicBox from "../magic-box";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -37,49 +38,51 @@ export default function Projects() {
       </motion.div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project, i) => (
-          <motion.div
-            key={project.title}
-            custom={i}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={cardVariants}
-          >
-            <Card className="h-full flex flex-col bg-card/50 hover:border-primary transition-all duration-300 group overflow-hidden hover:shadow-[0_0_25px_hsl(var(--primary)/0.4)] backdrop-blur-sm">
-              <CardHeader>
-                <div className="aspect-video relative overflow-hidden rounded-lg mb-4">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    data-ai-hint={project.imageHint}
-                  />
-                </div>
-                <CardTitle className="font-headline text-2xl">{project.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-muted-foreground mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary">{tech}</Badge>
-                  ))}
-                </div>
-              </CardContent>
-              <CardFooter className="flex gap-4">
-                <Button variant="outline" asChild className="transition-shadow duration-300 hover:shadow-[0_0_15px_hsl(var(--accent)/0.6)]">
-                  <Link href={project.liveUrl} target="_blank">
-                    <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
-                  </Link>
-                </Button>
-                <Button variant="ghost" asChild className="transition-shadow duration-300 hover:shadow-[0_0_15px_hsl(var(--accent)/0.6)]">
-                  <Link href={project.githubUrl} target="_blank">
-                    <Github className="mr-2 h-4 w-4" /> Source
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          </motion.div>
+          <MagicBox key={project.title} className="h-full">
+            <motion.div
+              custom={i}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={cardVariants}
+              className="h-full"
+            >
+              <Card className="h-full flex flex-col bg-card/50 transition-all duration-300 group overflow-hidden backdrop-blur-sm">
+                <CardHeader>
+                  <div className="aspect-video relative overflow-hidden rounded-lg mb-4">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      data-ai-hint={project.imageHint}
+                    />
+                  </div>
+                  <CardTitle className="font-headline text-2xl">{project.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <p className="text-muted-foreground mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech) => (
+                      <Badge key={tech} variant="secondary">{tech}</Badge>
+                    ))}
+                  </div>
+                </CardContent>
+                <CardFooter className="flex gap-4">
+                  <Button variant="outline" asChild className="transition-shadow duration-300 hover:shadow-[0_0_15px_hsl(var(--accent)/0.6)]">
+                    <Link href={project.liveUrl} target="_blank">
+                      <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                    </Link>
+                  </Button>
+                  <Button variant="ghost" asChild className="transition-shadow duration-300 hover:shadow-[0_0_15px_hsl(var(--accent)/0.6)]">
+                    <Link href={project.githubUrl} target="_blank">
+                      <Github className="mr-2 h-4 w-4" /> Source
+                    </Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+            </motion.div>
+          </MagicBox>
         ))}
       </div>
     </section>
