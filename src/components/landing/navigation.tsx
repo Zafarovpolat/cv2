@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Code, Menu, X } from "lucide-react";
+import { Code, Menu } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/sheet"
 
 const navItems = [
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Achievements", href: "#achievements" },
   { name: "Contact", href: "#contact" },

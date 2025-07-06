@@ -65,4 +65,25 @@ export const achievements = [
 export const contact = {
   telegram: "https://t.me/zafarovpolat",
   github: "https://github.com/Zafarovpolat",
+  cv: "https://zafarovpolat.github.io/cv/Pulat_Zafarov_CV.pdf",
 };
+
+export const about = {
+  description: "I'm a Frontend Developer based in Tashkent, Uzbekistan, with a passion for building beautiful, responsive, and user-friendly web applications.",
+  details: "With 4 years of experience, I've honed my skills in modern web technologies, always striving to write clean, efficient, and maintainable code. I enjoy turning complex problems into simple, beautiful, and intuitive designs."
+};
+
+export const skills = [
+  {
+    category: "Frontend",
+    technologies: ["HTML", "CSS", "SCSS", "JavaScript", "TypeScript", "React", "Next.js", "Redux Toolkit", "Vue.js", "Vuex"],
+  },
+  {
+    category: "Backend",
+    technologies: ["Node.js", "Express.js"],
+  },
+  {
+    category: "Tools & Other",
+    technologies: ["Git", "GitHub", "REST API", "Webpack", "Vite", "Figma", "Adobe Photoshop"],
+  },
+];
