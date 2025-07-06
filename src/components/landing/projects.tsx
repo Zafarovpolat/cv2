@@ -45,7 +45,7 @@ export default function Projects() {
             viewport={{ once: true, amount: 0.2 }}
             variants={cardVariants}
           >
-            <Card className="h-full flex flex-col bg-card/50 hover:border-primary transition-all duration-300 group overflow-hidden">
+            <Card className="h-full flex flex-col bg-card/50 hover:border-primary transition-all duration-300 group overflow-hidden hover:shadow-[0_0_25px_hsl(var(--primary)/0.4)]">
               <CardHeader>
                 <div className="aspect-video relative overflow-hidden rounded-lg mb-4">
                   <Image

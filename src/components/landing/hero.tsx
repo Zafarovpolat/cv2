@@ -36,7 +36,7 @@ class Particle {
   }
 
   draw(ctx: CanvasRenderingContext2D) {
-    ctx.fillStyle = "rgba(77, 100, 141, 0.8)";
+    ctx.fillStyle = "hsla(185, 94%, 47%, 0.8)";
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fill();
@@ -103,7 +103,7 @@ export default function Hero() {
       <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full z-0" />
       <div className="z-10 flex flex-col items-center gap-6 p-4">
         <motion.h1 
-          className="text-5xl md:text-7xl font-bold font-headline text-foreground"
+          className="text-5xl md:text-7xl font-bold font-headline text-foreground [text-shadow:0_0_15px_hsl(var(--primary))]"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -111,7 +111,7 @@ export default function Hero() {
           Pulat Zafarov
         </motion.h1>
         <motion.p 
-          className="text-xl md:text-2xl text-foreground/80 max-w-2xl"
+          className="text-xl md:text-2xl text-foreground/80 max-w-2xl [text-shadow:0_0_10px_hsl(var(--accent)/0.8)]"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -123,7 +123,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <Button asChild size="lg">
+          <Button asChild size="lg" className="transition-shadow duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.7)]">
             <Link href="#projects">
               View My Work <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
             </Link>

@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 234 11% 13%;
-    --foreground: 215 68% 90%;
-    --card: 234 11% 16%;
-    --card-foreground: 215 68% 90%;
-    --popover: 234 11% 13%;
-    --popover-foreground: 215 68% 90%;
-    --primary: 219 29% 43%;
-    --primary-foreground: 215 68% 90%;
-    --secondary: 219 29% 23%;
-    --secondary-foreground: 215 68% 90%;
-    --muted: 219 29% 23%;
-    --muted-foreground: 215 68% 70%;
-    --accent: 195 85% 50%;
-    --accent-foreground: 234 11% 13%;
+    --background: 222 89% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 89% 9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 89% 6%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 185 94% 47%;
+    --primary-foreground: 222 89% 6%;
+    --secondary: 320 100% 54%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 89% 12%;
+    --muted-foreground: 210 40% 60%;
+    --accent: 320 100% 54%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 219 29% 33%;
-    --input: 219 29% 33%;
-    --ring: 219 29% 43%;
+    --border: 185 94% 20%;
+    --input: 185 94% 20%;
+    --ring: 185 94% 57%;
     --radius: 0.5rem;
   }
 }
@@ -39,4 +39,17 @@
   html {
     scroll-behavior: smooth;
   }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.6);
+  }
+  50% {
+    box-shadow: 0 0 35px 5px hsl(var(--primary) / 0.8);
+  }
+}
+
+.animate-glow {
+  animation: glow 5s ease-in-out infinite;
 }

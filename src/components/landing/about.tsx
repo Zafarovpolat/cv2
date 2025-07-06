@@ -25,7 +25,7 @@ export default function About() {
               className="rounded-lg object-cover shadow-lg"
               data-ai-hint="man portrait"
             />
-             <div className="absolute -bottom-4 -right-4 -z-10 w-full h-full bg-primary/20 rounded-lg"></div>
+             <div className="absolute -bottom-4 -right-4 -z-10 w-full h-full bg-primary/20 rounded-lg animate-glow"></div>
           </div>
         </motion.div>
         <motion.div

@@ -57,7 +57,7 @@ export default function Skills() {
                                         viewport={{ once: true }}
                                         custom={index}
                                     >
-                                        <Badge variant="secondary" className="text-base px-4 py-2 hover:bg-primary/20 transition-colors">{tech}</Badge>
+                                        <Badge variant="secondary" className="text-base px-4 py-2 transition-all hover:shadow-[0_0_15px_hsl(var(--accent)/0.6)]">{tech}</Badge>
                                     </motion.li>
                                 ))}
                             </ul>
