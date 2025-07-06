@@ -41,7 +41,7 @@ export default function About() {
           <p className="text-lg text-foreground/80 mb-8">
             {about.details}
           </p>
-          <Button asChild size="lg">
+          <Button asChild size="lg" className="transition-shadow duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.7)]">
             <Link href="#contact">
               Contact <Send className="ml-2 h-5 w-5" />
             </Link>
