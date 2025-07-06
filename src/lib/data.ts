@@ -84,6 +84,6 @@ export const skills = [
   },
   {
     category: "Tools & Other",
-    technologies: ["Git", "GitHub", "REST API", "Webpack", "Vite", "Figma", "Adobe Photoshop"],
+    technologies: ["Git", "GitHub", "REST API", "Webpack", "Vite", "Figma", "Adobe Photoshop", "Telegram Bot"],
   },
 ];

@@ -4,8 +4,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Download } from "lucide-react";
-import { about, contact } from "@/lib/data";
+import { Send } from "lucide-react";
+import { about } from "@/lib/data";
 
 export default function About() {
   return (
@@ -42,8 +42,8 @@ export default function About() {
             {about.details}
           </p>
           <Button asChild size="lg">
-            <Link href={contact.cv} target="_blank">
-              Download CV <Download className="ml-2 h-5 w-5" />
+            <Link href="#contact">
+              Contact <Send className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </motion.div>
