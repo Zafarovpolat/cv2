@@ -4,8 +4,21 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
+import { useScroll } from "@/contexts/scroll-context";
 
 export default function Hero() {
+  const { scrollbar } = useScroll();
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.querySelector(targetId);
+    if (targetElement && scrollbar) {
+      scrollbar.scrollIntoView(targetElement as HTMLElement, {
+        offsetTop: -50,
+      });
+    }
+  };
+
   return (
     <section id="home" className="relative h-screen flex items-center justify-center text-center">
       <div className="z-10 flex flex-col items-center gap-6 p-4">
@@ -31,7 +44,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <Button asChild size="lg" className="transition-shadow duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.7)]">
-            <Link href="#projects">
+            <Link href="#projects" onClick={(e) => handleLinkClick(e, '#projects')}>
               View My Work <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
             </Link>
           </Button>

@@ -6,8 +6,21 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Send } from "lucide-react";
 import { about } from "@/lib/data";
+import { useScroll } from "@/contexts/scroll-context";
 
 export default function About() {
+  const { scrollbar } = useScroll();
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.querySelector(targetId);
+    if (targetElement && scrollbar) {
+      scrollbar.scrollIntoView(targetElement as HTMLElement, {
+        offsetTop: -50,
+      });
+    }
+  };
+
   return (
     <section id="about" className="py-16 md:py-24 bg-card/20 backdrop-blur-sm">
       <div className="container mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-12 items-center">
@@ -42,7 +55,7 @@ export default function About() {
             {about.details}
           </p>
           <Button asChild size="lg" className="transition-shadow duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.7)]">
-            <Link href="#contact">
+            <Link href="#contact" onClick={(e) => handleLinkClick(e, '#contact')}>
               Contact <Send className="ml-2 h-5 w-5" />
             </Link>
           </Button>

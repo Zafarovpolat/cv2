@@ -11,6 +11,7 @@ import {
   SheetTrigger,
   SheetClose
 } from "@/components/ui/sheet"
+import { useScroll } from "@/contexts/scroll-context";
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -20,6 +21,18 @@ const navItems = [
 ];
 
 export default function Navigation() {
+  const { scrollbar } = useScroll();
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.querySelector(targetId);
+    if (targetElement && scrollbar) {
+      scrollbar.scrollIntoView(targetElement as HTMLElement, {
+        offsetTop: -50,
+      });
+    }
+  };
+  
   return (
     <motion.header
       className={cn(
@@ -41,6 +54,7 @@ export default function Navigation() {
             <Button variant="ghost" asChild key={item.name} className="transition-shadow duration-300 hover:shadow-[0_0_15px_hsl(var(--accent)/0.5)]">
               <Link
                 href={item.href}
+                onClick={(e) => handleLinkClick(e, item.href)}
                 className="text-foreground/80 hover:text-foreground transition-colors"
               >
                 {item.name}
@@ -65,7 +79,7 @@ export default function Navigation() {
                <nav className="flex flex-col gap-6 mt-12">
                 {navItems.map((item) => (
                     <SheetClose asChild key={item.name}>
-                        <Link href={item.href} className="text-xl text-foreground/80 hover:text-foreground transition-colors">
+                        <Link href={item.href} onClick={(e) => handleLinkClick(e, item.href)} className="text-xl text-foreground/80 hover:text-foreground transition-colors">
                             {item.name}
                         </Link>
                     </SheetClose>
