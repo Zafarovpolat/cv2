@@ -32,7 +32,7 @@ export const ScrollProvider = ({ children }: { children: ReactNode }) => {
             scrollbarInstance.update();
         }
       });
-      resizeObserver.observe(viewRef.current);
+      resizeObserver.observe(document.body);
 
       return () => {
         resizeObserver.disconnect();
