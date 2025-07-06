@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useRef, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import Scrollbar from 'smooth-scrollbar';
 import type { Scrollbar as ScrollbarType } from 'smooth-scrollbar/scrollbar';
 
@@ -16,7 +16,7 @@ export const useScroll = () => useContext(ScrollContext);
 
 export const ScrollProvider = ({ children }: { children: ReactNode }) => {
   const viewRef = useRef<HTMLDivElement>(null);
-  const scrollbarRef = useRef<ScrollbarType | null>(null);
+  const [scrollbar, setScrollbar] = useState<ScrollbarType | null>(null);
 
   useEffect(() => {
     if (viewRef.current) {
@@ -24,13 +24,10 @@ export const ScrollProvider = ({ children }: { children: ReactNode }) => {
         damping: 0.07,
         delegateTo: document,
       });
-      scrollbarRef.current = scrollbarInstance;
+      setScrollbar(scrollbarInstance);
 
-      // This handles resize events
       const resizeObserver = new ResizeObserver(() => {
-        if (viewRef.current) {
-            scrollbarInstance.update();
-        }
+        scrollbarInstance.update();
       });
       resizeObserver.observe(document.body);
 
@@ -39,12 +36,13 @@ export const ScrollProvider = ({ children }: { children: ReactNode }) => {
         if (scrollbarInstance) {
           scrollbarInstance.destroy();
         }
+        setScrollbar(null);
       };
     }
   }, []);
 
   return (
-    <ScrollContext.Provider value={{ scrollbar: scrollbarRef.current }}>
+    <ScrollContext.Provider value={{ scrollbar }}>
       <div ref={viewRef} style={{ height: '100vh' }}>
         {children}
       </div>
