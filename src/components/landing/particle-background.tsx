@@ -61,9 +61,27 @@ export default function ParticleBackground() {
     if (!ctx) return;
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (const particle of particlesArray.current) {
-      particle.update();
-      particle.draw(ctx);
+    for (let i = 0; i < particlesArray.current.length; i++) {
+      const p1 = particlesArray.current[i];
+      p1.update();
+      p1.draw(ctx);
+
+      for (let j = i + 1; j < particlesArray.current.length; j++) {
+        const p2 = particlesArray.current[j];
+        const dx = p1.x - p2.x;
+        const dy = p1.y - p2.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 150) {
+          ctx.beginPath();
+          ctx.strokeStyle = `hsla(195, 100%, 50%, ${1 - distance / 150})`;
+          ctx.lineWidth = 0.5;
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+          ctx.closePath();
+        }
+      }
     }
     animationFrameId.current = requestAnimationFrame(animate);
   }, []);

@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Code, Menu } from "lucide-react";
+import { Code, Menu, Github } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -21,23 +20,11 @@ const navItems = [
 ];
 
 export default function Navigation() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <motion.header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-background/80 backdrop-blur-sm border-b border-border/50"
-          : "bg-transparent border-b border-transparent"
+        "bg-background/80 backdrop-blur-sm border-b border-border/50"
       )}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -51,7 +38,7 @@ export default function Navigation() {
 
         <nav className="hidden md:flex items-center gap-2">
           {navItems.map((item) => (
-            <Button variant="ghost" asChild key={item.name}>
+            <Button variant="ghost" asChild key={item.name} className="transition-shadow duration-300 hover:shadow-[0_0_15px_hsl(var(--accent)/0.5)]">
               <Link
                 href={item.href}
                 className="text-foreground/80 hover:text-foreground transition-colors"
@@ -60,9 +47,9 @@ export default function Navigation() {
               </Link>
             </Button>
           ))}
-          <Button variant="outline" asChild className="ml-4">
+          <Button asChild className="ml-4 transition-shadow duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.7)]">
             <a href="https://github.com/Zafarovpolat" target="_blank" rel="noopener noreferrer">
-              GitHub
+              <Github className="mr-2 h-4 w-4" /> GitHub
             </a>
           </Button>
         </nav>
@@ -83,9 +70,9 @@ export default function Navigation() {
                         </Link>
                     </SheetClose>
                 ))}
-                <Button variant="outline" asChild className="mt-4">
+                <Button asChild className="mt-4 transition-shadow duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.7)]">
                     <a href="https://github.com/Zafarovpolat" target="_blank" rel="noopener noreferrer">
-                        GitHub
+                        <Github className="mr-2 h-4 w-4" /> GitHub
                     </a>
                 </Button>
                </nav>

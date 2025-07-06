@@ -18,12 +18,12 @@ export default function Contact() {
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap justify-center gap-4 mt-4">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="transition-shadow duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.7)]">
               <Link href={contact.telegram} target="_blank">
                 <Send className="mr-2 h-5 w-5" /> Telegram
               </Link>
             </Button>
-            <Button asChild size="lg" variant="secondary">
+            <Button asChild size="lg" variant="secondary" className="transition-shadow duration-300 hover:shadow-[0_0_20px_hsl(var(--accent)/0.6)]">
               <Link href={contact.github} target="_blank">
                 <Github className="mr-2 h-5 w-5" /> GitHub
               </Link>

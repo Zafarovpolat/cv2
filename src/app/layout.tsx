@@ -3,6 +3,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { Toaster } from "@/components/ui/toaster";
 import ParticleBackground from '@/components/landing/particle-background';
+import SmoothScroll from '@/components/smooth-scroll';
 
 export const metadata: Metadata = {
   title: "Pulat Zafarov | Frontend Developer",
@@ -24,7 +25,9 @@ export default function RootLayout({
       </head>
       <body className={cn('font-body antialiased')}>
         <ParticleBackground />
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
         <Toaster />
       </body>
     </html>

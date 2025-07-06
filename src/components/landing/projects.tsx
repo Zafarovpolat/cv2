@@ -67,12 +67,12 @@ export default function Projects() {
                 </div>
               </CardContent>
               <CardFooter className="flex gap-4">
-                <Button variant="outline" asChild>
+                <Button variant="outline" asChild className="transition-shadow duration-300 hover:shadow-[0_0_15px_hsl(var(--accent)/0.6)]">
                   <Link href={project.liveUrl} target="_blank">
                     <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
                   </Link>
                 </Button>
-                <Button variant="ghost" asChild>
+                <Button variant="ghost" asChild className="transition-shadow duration-300 hover:shadow-[0_0_15px_hsl(var(--accent)/0.6)]">
                   <Link href={project.githubUrl} target="_blank">
                     <Github className="mr-2 h-4 w-4" /> Source
                   </Link>
