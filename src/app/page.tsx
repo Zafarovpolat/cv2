@@ -1,3 +1,26 @@
+import Achievements from "@/components/landing/achievements";
+import Contact from "@/components/landing/contact";
+import Footer from "@/components/landing/footer";
+import Hero from "@/components/landing/hero";
+import Navigation from "@/components/landing/navigation";
+import Projects from "@/components/landing/projects";
+import { Separator } from "@/components/ui/separator";
+
 export default function Home() {
-  return <></>;
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navigation />
+      <main className="flex-1">
+        <Hero />
+        <div className="container mx-auto px-4 md:px-6">
+          <Projects />
+          <Separator className="my-16 md:my-24 bg-border/20" />
+          <Achievements />
+          <Separator className="my-16 md:my-24 bg-border/20" />
+          <Contact />
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
 }
