@@ -29,10 +29,6 @@ class Particle {
     }
     this.x += this.speedX;
     this.y += this.speedY;
-
-    // Add some friction
-    this.speedX *= 0.98;
-    this.speedY *= 0.98;
   }
 
   draw(ctx: CanvasRenderingContext2D) {
@@ -113,7 +109,7 @@ export default function ParticleBackground() {
         if (distance < 200) {
           const forceDirectionX = dx / distance;
           const forceDirectionY = dy / distance;
-          const force = (200 - distance) / 200 * 0.25;
+          const force = (200 - distance) / 200 * 0.1;
           p.speedX += forceDirectionX * force;
           p.speedY += forceDirectionY * force;
         }
