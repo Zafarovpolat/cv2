@@ -42,7 +42,7 @@ export default function Skills() {
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <Card className="bg-card/50">
+                    <Card className="bg-card/50 backdrop-blur-sm">
                         <CardHeader>
                             <CardTitle className="font-headline text-2xl">{skillCategory.category}</CardTitle>
                         </CardHeader>

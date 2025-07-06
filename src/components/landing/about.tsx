@@ -9,7 +9,7 @@ import { about } from "@/lib/data";
 
 export default function About() {
   return (
-    <section id="about" className="py-16 md:py-24 bg-card/20">
+    <section id="about" className="py-16 md:py-24 bg-card/20 backdrop-blur-sm">
       <div className="container mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, x: -50 }}

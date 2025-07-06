@@ -40,7 +40,7 @@ export default function Achievements() {
             viewport={{ once: true, amount: 0.3 }}
             variants={cardVariants}
           >
-            <Card className="text-center h-full bg-card/50 hover:bg-card/80 hover:border-primary/50 transition-all duration-300">
+            <Card className="text-center h-full bg-card/50 hover:bg-card/80 hover:border-primary/50 transition-all duration-300 backdrop-blur-sm">
               <CardHeader className="items-center">
                 <div className="p-4 bg-primary/20 rounded-full mb-4">
                   <achievement.icon className="h-8 w-8 text-accent" />

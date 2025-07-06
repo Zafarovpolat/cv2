@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 export default function Contact() {
   return (
     <section id="contact" className="py-16 md:py-24">
-      <Card className="max-w-3xl mx-auto text-center bg-card/50 border-primary/20">
+      <Card className="max-w-3xl mx-auto text-center bg-card/50 border-primary/20 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="text-4xl font-headline font-bold text-foreground">
             Get In Touch
