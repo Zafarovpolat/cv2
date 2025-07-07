@@ -32,7 +32,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Pulat Zafarov
+          Polat Zafarov
         </motion.h1>
         <motion.p 
           className="text-xl md:text-2xl text-foreground/80 max-w-2xl [text-shadow:0_0_10px_hsl(var(--accent)/0.8)]"

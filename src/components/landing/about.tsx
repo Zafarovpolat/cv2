@@ -37,7 +37,7 @@ export default function About() {
           <div className="relative aspect-square max-w-md mx-auto">
             <Image
               src="https://placehold.co/500x500.png"
-              alt="Pulat Zafarov"
+              alt="Polat Zafarov"
               fill
               className="rounded-lg object-cover shadow-lg"
               data-ai-hint="man portrait"

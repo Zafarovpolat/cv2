@@ -73,8 +73,8 @@ interface Translations {
 export const translations: Translations = {
   en: {
     meta: {
-      title: "Pulat Zafarov | Frontend Developer",
-      description: "Interactive portfolio of Pulat Zafarov, a frontend developer with 4 years of experience.",
+      title: "Polat Zafarov | Frontend Developer",
+      description: "Interactive portfolio of Polat Zafarov, a frontend developer with 4 years of experience.",
     },
     nav: {
       about: "About",
@@ -190,8 +190,8 @@ export const translations: Translations = {
   },
   ru: {
     meta: {
-        title: "Пулат Зафаров | Фронтенд-разработчик",
-        description: "Интерактивное портфолио Пулата Зафарова, фронтенд-разработчика с 4-летним опытом.",
+        title: "Полат Зафаров | Фронтенд-разработчик",
+        description: "Интерактивное портфолио Полата Зафарова, фронтенд-разработчика с 4-летним опытом.",
     },
     nav: {
       about: "Обо мне",
@@ -310,5 +310,5 @@ export const translations: Translations = {
 export const contactInfo = {
   telegram: "https://t.me/zafarovpolat",
   github: "https://github.com/Zafarovpolat",
-  cv: "https://zafarovpolat.github.io/cv/Pulat_Zafarov_CV.pdf",
+  cv: "https://zafarovpolat.github.io/cv/Polat_Zafarov_CV.pdf",
 };

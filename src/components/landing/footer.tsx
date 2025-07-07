@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border/20">
       <div className="container mx-auto px-4 md:px-6 py-6 text-center text-muted-foreground">
-        <p>© {currentYear} Pulat Zafarov. {t.footer.rights}</p>
+        <p>© {currentYear} Polat Zafarov. {t.footer.rights}</p>
       </div>
     </footer>
   );

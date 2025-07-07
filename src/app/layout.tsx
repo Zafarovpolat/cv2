@@ -8,8 +8,8 @@ import { ThemeProvider } from '@/contexts/theme-context';
 import { LanguageProvider } from '@/contexts/language-context';
 
 export const metadata: Metadata = {
-  title: "Pulat Zafarov | Frontend Developer",
-  description: "Interactive portfolio of Pulat Zafarov, a frontend developer with 4 years of experience.",
+  title: "Polat Zafarov | Frontend Developer",
+  description: "Interactive portfolio of Polat Zafarov, a frontend developer with 4 years of experience.",
 };
 
 export default function RootLayout({
