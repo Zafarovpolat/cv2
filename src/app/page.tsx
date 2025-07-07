@@ -16,13 +16,13 @@ export default function Home() {
         <Hero />
         <About />
         <div className="container mx-auto px-4 md:px-6">
-          <Separator className="my-16 md:my-24 bg-border/20" />
+          <Separator className="my-12 md:my-24 bg-border/20" />
           <Skills />
-          <Separator className="my-16 md:my-24 bg-border/20" />
+          <Separator className="my-12 md:my-24 bg-border/20" />
           <Projects />
-          <Separator className="my-16 md:my-24 bg-border/20" />
+          <Separator className="my-12 md:my-24 bg-border/20" />
           <Achievements />
-          <Separator className="my-16 md:my-24 bg-border/20" />
+          <Separator className="my-12 md:my-24 bg-border/20" />
           <Contact />
         </div>
       </main>

@@ -32,6 +32,7 @@ export default function About() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.7 }}
+          className="overflow-hidden"
         >
           <div className="relative aspect-square max-w-md mx-auto">
             <Image
@@ -41,7 +42,7 @@ export default function About() {
               className="rounded-lg object-cover shadow-lg"
               data-ai-hint="man portrait"
             />
-             <div className="absolute -bottom-4 -right-4 -z-10 w-full h-full bg-primary/20 rounded-lg animate-glow"></div>
+             <div className="absolute -bottom-4 -right-4 -z-10 w-full h-full rounded-lg bg-foreground/10 dark:bg-primary/20 dark:animate-glow"></div>
           </div>
         </motion.div>
         <motion.div

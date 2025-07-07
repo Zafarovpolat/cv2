@@ -27,7 +27,7 @@ export default function Hero() {
     <section id="home" className="relative h-screen flex items-center justify-center text-center">
       <div className="z-10 flex flex-col items-center gap-6 p-4">
         <motion.h1 
-          className="text-5xl md:text-7xl font-bold font-headline text-foreground [text-shadow:0_0_15px_hsl(var(--primary))]"
+          className="text-5xl md:text-7xl font-bold font-headline text-foreground [text-shadow:0_0_10px_hsl(var(--foreground)/0.3)] dark:[text-shadow:0_0_15px_hsl(var(--primary))]"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
