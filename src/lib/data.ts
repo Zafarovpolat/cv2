@@ -65,7 +65,7 @@ export const achievements = [
 export const contact = {
   telegram: "https://t.me/zafarovpolat",
   github: "https://github.com/Zafarovpolat",
-  cv: "https://zafarovpolat.github.io/cv/Pulat_Zafarov_CV.pdf",
+  cv: "https://zafarovpolat.github.io/cv/Polat_Zafarov_CV.pdf",
 };
 
 export const about = {
