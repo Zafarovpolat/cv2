@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { skills } from "@/lib/data";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import MagicBox from "../magic-box";
+import { useLanguage } from "@/contexts/language-context";
+import { translations } from "@/lib/translations";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -22,6 +23,9 @@ const fadeInAnimationVariants = {
 };
 
 export default function Skills() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <section id="skills" className="py-16 md:py-24">
         <motion.div
@@ -31,11 +35,11 @@ export default function Skills() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
         >
-            <h2 className="text-4xl font-headline font-bold text-foreground">My Skills</h2>
-            <p className="text-lg text-foreground/70 mt-2">Technologies and tools I work with.</p>
+            <h2 className="text-4xl font-headline font-bold text-foreground">{t.skills.title}</h2>
+            <p className="text-lg text-foreground/70 mt-2">{t.skills.subtitle}</p>
         </motion.div>
         <div className="max-w-4xl mx-auto space-y-8">
-            {skills.map((skillCategory) => (
+            {t.skills.items.map((skillCategory) => (
                 <MagicBox key={skillCategory.category}>
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}

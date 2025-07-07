@@ -5,9 +5,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 import { useScroll } from "@/contexts/scroll-context";
+import { useLanguage } from "@/contexts/language-context";
+import { translations } from "@/lib/translations";
 
 export default function Hero() {
   const { scrollbar } = useScroll();
+  const { language } = useLanguage();
+  const t = translations[language];
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
@@ -36,7 +40,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Frontend Developer with 4 years of experience crafting beautiful and performant web experiences.
+          {t.hero.subtitle}
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -45,7 +49,7 @@ export default function Hero() {
         >
           <Button asChild size="lg" className="transition-shadow duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.7)]">
             <Link href="#projects" onClick={(e) => handleLinkClick(e, '#projects')}>
-              View My Work <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
+              {t.hero.button} <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
             </Link>
           </Button>
         </motion.div>

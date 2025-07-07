@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";
+import { useTheme } from "@/contexts/theme-context";
 
 class Particle {
   x: number;
@@ -31,8 +32,8 @@ class Particle {
     this.y += this.speedY;
   }
 
-  draw(ctx: CanvasRenderingContext2D) {
-    ctx.fillStyle = "hsla(195, 100%, 50%, 0.8)";
+  draw(ctx: CanvasRenderingContext2D, color: string) {
+    ctx.fillStyle = color;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fill();
@@ -43,6 +44,10 @@ export default function ParticleBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesArray = useRef<Particle[]>([]);
   const animationFrameId = useRef<number>();
+  const { theme } = useTheme();
+
+  const particleColor = theme === 'dark' ? "hsla(195, 100%, 50%, 0.8)" : "hsla(0, 0%, 11%, 0.8)";
+  const lineColor = theme === 'dark' ? "hsla(195, 100%, 50%, " : "hsla(0, 0%, 11%, ";
 
   const initParticles = useCallback((width: number, height: number) => {
     particlesArray.current = [];
@@ -62,11 +67,10 @@ export default function ParticleBackground() {
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // Animate particles and draw lines between them
     for (let i = 0; i < particlesArray.current.length; i++) {
       const p1 = particlesArray.current[i];
       p1.update();
-      p1.draw(ctx);
+      p1.draw(ctx, particleColor);
 
       for (let j = i + 1; j < particlesArray.current.length; j++) {
         const p2 = particlesArray.current[j];
@@ -76,7 +80,7 @@ export default function ParticleBackground() {
 
         if (distance < 150) {
           ctx.beginPath();
-          ctx.strokeStyle = `hsla(195, 100%, 50%, ${1 - distance / 150})`;
+          ctx.strokeStyle = `${lineColor}${1 - distance / 150})`;
           ctx.lineWidth = 0.5;
           ctx.moveTo(p1.x, p1.y);
           ctx.lineTo(p2.x, p2.y);
@@ -87,7 +91,7 @@ export default function ParticleBackground() {
     }
 
     animationFrameId.current = requestAnimationFrame(animate);
-  }, []);
+  }, [particleColor, lineColor]);
   
   const setupCanvas = useCallback(() => {
     const canvas = canvasRef.current;

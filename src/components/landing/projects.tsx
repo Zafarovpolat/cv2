@@ -3,12 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { projects } from "@/lib/data";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink } from "lucide-react";
 import MagicBox from "../magic-box";
+import { useLanguage } from "@/contexts/language-context";
+import { translations } from "@/lib/translations";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -24,6 +25,9 @@ const cardVariants = {
 };
 
 export default function Projects() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <section id="projects" className="py-16 md:py-24">
       <motion.div
@@ -33,11 +37,11 @@ export default function Projects() {
         transition={{ duration: 0.5 }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl font-headline font-bold text-foreground">My Work</h2>
-        <p className="text-lg text-foreground/70 mt-2">A selection of projects I'm proud of.</p>
+        <h2 className="text-4xl font-headline font-bold text-foreground">{t.projects.title}</h2>
+        <p className="text-lg text-foreground/70 mt-2">{t.projects.subtitle}</p>
       </motion.div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {projects.map((project, i) => (
+        {t.projects.items.map((project, i) => (
           <MagicBox key={project.title} className="h-full">
             <motion.div
               custom={i}

@@ -5,11 +5,14 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Send } from "lucide-react";
-import { about } from "@/lib/data";
 import { useScroll } from "@/contexts/scroll-context";
+import { useLanguage } from "@/contexts/language-context";
+import { translations } from "@/lib/translations";
 
 export default function About() {
   const { scrollbar } = useScroll();
+  const { language } = useLanguage();
+  const t = translations[language];
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
@@ -47,16 +50,16 @@ export default function About() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          <h2 className="text-4xl font-headline font-bold text-foreground mb-4">About Me</h2>
+          <h2 className="text-4xl font-headline font-bold text-foreground mb-4">{t.about.title}</h2>
           <p className="text-lg text-foreground/80 mb-6">
-            {about.description}
+            {t.about.description}
           </p>
           <p className="text-lg text-foreground/80 mb-8">
-            {about.details}
+            {t.about.details}
           </p>
           <Button asChild size="lg" className="transition-shadow duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.7)]">
             <Link href="#contact" onClick={(e) => handleLinkClick(e, '#contact')}>
-              Contact <Send className="ml-2 h-5 w-5" />
+              {t.about.button} <Send className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </motion.div>

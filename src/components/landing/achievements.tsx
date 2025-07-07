@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { achievements } from "@/lib/data";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import MagicBox from "../magic-box";
+import { useLanguage } from "@/contexts/language-context";
+import { translations } from "@/lib/translations";
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.9 },
@@ -19,6 +20,9 @@ const cardVariants = {
 };
 
 export default function Achievements() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <section id="achievements" className="py-16 md:py-24">
       <motion.div
@@ -28,11 +32,11 @@ export default function Achievements() {
         transition={{ duration: 0.5 }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl font-headline font-bold text-foreground">Achievements & Recognition</h2>
-        <p className="text-lg text-foreground/70 mt-2">Milestones that mark my journey.</p>
+        <h2 className="text-4xl font-headline font-bold text-foreground">{t.achievements.title}</h2>
+        <p className="text-lg text-foreground/70 mt-2">{t.achievements.subtitle}</p>
       </motion.div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {achievements.map((achievement, i) => (
+        {t.achievements.items.map((achievement, i) => (
           <MagicBox key={achievement.title} className="h-full">
             <motion.div
               custom={i}
