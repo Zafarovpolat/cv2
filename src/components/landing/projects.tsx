@@ -11,6 +11,22 @@ import MagicBox from "../magic-box";
 import { useLanguage } from "@/contexts/language-context";
 import { translations } from "@/lib/translations";
 
+// Static imports for project images
+import projectImage1 from '../../../public/1.png';
+import projectImage2 from '../../../public/2.png';
+import projectImage3 from '../../../public/3.png';
+import projectImage4 from '../../../public/4.png';
+
+// Map project images to their titles or image paths
+const imageMap: { [key: string]: any } = {
+  'Testana': projectImage1,
+  'FUTURA Architects': projectImage2,
+  'University Website': projectImage3,
+  'Food Ideology': projectImage4,
+  'Сайт для университета': projectImage3,
+  'Идеология Еды': projectImage4,
+};
+
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: (i: number) => ({
@@ -55,11 +71,13 @@ export default function Projects() {
                 <CardHeader>
                   <div className="aspect-video relative overflow-hidden rounded-lg mb-4">
                     <Image
-                      src={project.image}
+                      src={imageMap[project.title]} // Use static import from imageMap
                       alt={project.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       data-ai-hint={project.imageHint}
+                      placeholder="blur" // Enable blur placeholder
+                      priority={false} // Enable lazy loading
                     />
                   </div>
                   <CardTitle className="font-headline text-2xl">{project.title}</CardTitle>

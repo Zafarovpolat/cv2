@@ -8,6 +8,7 @@ import { Send } from "lucide-react";
 import { useScroll } from "@/contexts/scroll-context";
 import { useLanguage } from "@/contexts/language-context";
 import { translations } from "@/lib/translations";
+import aboutImage from '../../../public/about.jpeg'; // Static import
 
 export default function About() {
   const { scrollbar } = useScroll();
@@ -32,17 +33,19 @@ export default function About() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.7 }}
-          className="overflow-hidden"
+          className="overflow-hidden rounded-lg"
         >
-          <div className="relative aspect-square max-w-md mx-auto">
+          <div className="relative aspect-square rounded-lg max-w-md mx-auto">
             <Image
-              src="https://placehold.co/500x500.png"
+              src={aboutImage}
               alt="Polat Zafarov"
               fill
               className="rounded-lg object-cover shadow-lg"
               data-ai-hint="man portrait"
+              placeholder="blur" // Blur placeholder
+              priority={false} // Lazy loading
             />
-             <div className="absolute -bottom-4 -right-4 -z-10 w-full h-full rounded-lg bg-foreground/10 dark:bg-primary/20 dark:animate-glow"></div>
+            <div className="absolute -bottom-4 -right-4 -z-10 w-full h-full rounded-lg bg-foreground/10 dark:bg-primary/20 dark:animate-glow"></div>
           </div>
         </motion.div>
         <motion.div

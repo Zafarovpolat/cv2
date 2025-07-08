@@ -17,8 +17,8 @@ interface Achievement {
 }
 
 interface Skill {
-    category: string;
-    technologies: string[];
+  category: string;
+  technologies: string[];
 }
 
 interface Translations {
@@ -120,8 +120,8 @@ export const translations: Translations = {
           description: "A platform for buying and selling reusable code scripts, built with React and Supabase.",
           technologies: ["React", "CSS", "Supabase", "Node.js"],
           liveUrl: "https://tstn.onrender.com/",
-          githubUrl: "#",
-          image: "https://placehold.co/600x400.png",
+          githubUrl: "https://github.com/Zafarovpolat/tstn",
+          image: "/1.png",
           imageHint: "code marketplace",
         },
         {
@@ -129,8 +129,8 @@ export const translations: Translations = {
           description: "A modern and stylish website for an architectural bureau, featuring smooth animations with GSAP.",
           technologies: ["HTML", "CSS", "jQuery", "GSAP"],
           liveUrl: "https://futura-architects.com/",
-          githubUrl: "#",
-          image: "https://placehold.co/600x400.png",
+          githubUrl: "https://github.com/Zafarovpolat/FUTURA",
+          image: "/2.png",
           imageHint: "architecture website",
         },
         {
@@ -138,8 +138,8 @@ export const translations: Translations = {
           description: "An informational website for a technical university, built with a clean and responsive design.",
           technologies: ["HTML", "SCSS", "JavaScript"],
           liveUrl: "https://zafarovpolat.github.io/TDTU/",
-          githubUrl: "#",
-          image: "https://placehold.co/600x400.png",
+          githubUrl: "https://github.com/Zafarovpolat/TDTU",
+          image: "/3.png",
           imageHint: "university campus",
         },
         {
@@ -147,8 +147,8 @@ export const translations: Translations = {
           description: "A visually engaging website for a food company, using Next.js and Framer Motion for dynamic animations.",
           technologies: ["Next.js", "CSS", "Framer Motion"],
           liveUrl: "https://iye-81rw.onrender.com/",
-          githubUrl: "#",
-          image: "https://placehold.co/600x400.png",
+          githubUrl: "https://github.com/Zafarovpolat/IYE",
+          image: "/4.png",
           imageHint: "food delivery",
         },
       ],
@@ -159,18 +159,18 @@ export const translations: Translations = {
       items: [
         {
           icon: Trophy,
-          title: "1st Place Hackathon 2023",
-          description: "Awarded for building an innovative solution for local communities in under 48 hours.",
+          title: "$300 in a Day",
+          description: "Successfully earned $300 in a single day on my first project, showcasing rapid delivery and client satisfaction.",
         },
         {
           icon: Award,
-          title: "Certified AWS Developer",
-          description: "Associate-level certification demonstrating expertise in AWS cloud services.",
+          title: "Skilled Multi-Stack Developer",
+          description: "Proficient in various technology stacks, delivering versatile and high-quality solutions across multiple domains.",
         },
         {
           icon: Star,
-          title: "Top-Rated Freelancer",
-          description: "Consistently received 5-star ratings and positive feedback on multiple freelance platforms.",
+          title: "4+ Years & 10+ Projects",
+          description: "Over 4 years of experience with more than 10 successful projects, demonstrating expertise and reliability.",
         },
         {
           icon: GitFork,
@@ -190,8 +190,8 @@ export const translations: Translations = {
   },
   ru: {
     meta: {
-        title: "Полат Зафаров | Фронтенд-разработчик",
-        description: "Интерактивное портфолио Полата Зафарова, фронтенд-разработчика с 4-летним опытом.",
+      title: "Полат Зафаров | Фронтенд-разработчик",
+      description: "Интерактивное портфолио Полата Зафарова, фронтенд-разработчика с 4-летним опытом.",
     },
     nav: {
       about: "Обо мне",
@@ -237,8 +237,8 @@ export const translations: Translations = {
           description: "Платформа для покупки и продажи готовых скриптов, созданная с использованием React и Supabase.",
           technologies: ["React", "CSS", "Supabase", "Node.js"],
           liveUrl: "https://tstn.onrender.com/",
-          githubUrl: "#",
-          image: "https://placehold.co/600x400.png",
+          githubUrl: "https://github.com/Zafarovpolat/tstn",
+          image: "/1.png",
           imageHint: "code marketplace",
         },
         {
@@ -246,8 +246,8 @@ export const translations: Translations = {
           description: "Современный и стильный сайт для архитектурного бюро с плавными анимациями на GSAP.",
           technologies: ["HTML", "CSS", "jQuery", "GSAP"],
           liveUrl: "https://futura-architects.com/",
-          githubUrl: "#",
-          image: "https://placehold.co/600x400.png",
+          githubUrl: "https://github.com/Zafarovpolat/FUTURA",
+          image: "/2.png",
           imageHint: "architecture website",
         },
         {
@@ -255,8 +255,8 @@ export const translations: Translations = {
           description: "Информационный сайт для технического университета, созданный с чистым и адаптивным дизайном.",
           technologies: ["HTML", "SCSS", "JavaScript"],
           liveUrl: "https://zafarovpolat.github.io/TDTU/",
-          githubUrl: "#",
-          image: "https://placehold.co/600x400.png",
+          githubUrl: "https://github.com/Zafarovpolat/TDTU",
+          image: "/3.png",
           imageHint: "university campus",
         },
         {
@@ -264,8 +264,8 @@ export const translations: Translations = {
           description: "Визуально привлекательный сайт для пищевой компании, использующий Next.js и Framer Motion для динамичных анимаций.",
           technologies: ["Next.js", "CSS", "Framer Motion"],
           liveUrl: "https://iye-81rw.onrender.com/",
-          githubUrl: "#",
-          image: "https://placehold.co/600x400.png",
+          githubUrl: "https://github.com/Zafarovpolat/IYE",
+          image: "/4.png",
           imageHint: "food delivery",
         },
       ],
@@ -276,18 +276,18 @@ export const translations: Translations = {
       items: [
         {
           icon: Trophy,
-          title: "1-е место на Хакатоне 2023",
-          description: "Награжден за создание инновационного решения для местных сообществ менее чем за 48 часов.",
+          title: "$300 за день",
+          description: "Успешно заработал $300 за один день на первом проекте, демонстрируя быструю доставку и удовлетворенность клиента.",
         },
         {
           icon: Award,
-          title: "Сертифицированный разработчик AWS",
-          description: "Сертификация уровня Associate, подтверждающая опыт работы с облачными сервисами AWS.",
+          title: "Квалифицированный разработчик",
+          description: "Владею различными технологическими стеками, предоставляя универсальные и высококачественные решения в разных областях.",
         },
         {
           icon: Star,
-          title: "Фрилансер с высшим рейтингом",
-          description: "Постоянно получал 5-звездочные оценки и положительные отзывы на нескольких фриланс-платформах.",
+          title: "4+ года и 10+ проектов",
+          description: "Более 4 лет опыта и более 10 успешных проектов, демонстрирующих профессионализм и надежность.",
         },
         {
           icon: GitFork,
