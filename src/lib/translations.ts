@@ -116,7 +116,7 @@ export const translations: Translations = {
       subtitle: "A selection of projects I'm proud of.",
       items: [
         {
-          title: "Testana",
+          title: "Script.er",
           description: "A platform for buying and selling reusable code scripts, built with React and Supabase.",
           technologies: ["React", "CSS", "Supabase", "Node.js"],
           liveUrl: "https://tstn.onrender.com/",
@@ -233,7 +233,7 @@ export const translations: Translations = {
       subtitle: "Подборка проектов, которыми я горжусь.",
       items: [
         {
-          title: "Testana",
+          title: "Script.er",
           description: "Платформа для покупки и продажи готовых скриптов, созданная с использованием React и Supabase.",
           technologies: ["React", "CSS", "Supabase", "Node.js"],
           liveUrl: "https://tstn.onrender.com/",
